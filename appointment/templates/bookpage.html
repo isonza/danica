@@ -1,0 +1,68 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Shinee Smiles: Book Dental Appointment</title>
+</head>
+<style>
+*{
+	font-family: sans-serif;
+}
+h1{
+	color: white;
+	text-align: center;
+	font-size: 70px;
+	-webkit-text-stroke-width: 3px;
+	-webkit-text-stroke-color: #9B283C; 
+}
+table{
+	border: 2px solid black;
+	border-collapse: collapse;
+}
+th{
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #9B283C;
+	color: white;	
+}
+td{
+	border: 1px solid #ddd;
+	padding: 15px;
+	background-color: #D8769A;
+	color: white;
+}
+</style>
+
+<body style="background-color:#E3BCD6;">
+<center><h1>Submitted Client Information</h1></center>
+<table style="width:100%">
+  <tr>
+  
+    <th>Full name:</th>
+    <th>Email Address:</th>
+    <th>Contact Number:</th>
+    <th>Address:</th>
+    <th>Date:</th>
+    <th>Time:</th>
+    </tr>
+<div class="inp">
+	{% for inp in inp %}
+	<div class="inp">
+
+    <tr>
+    <td>{{ forloop.counter }}:{{ inp.name }}</td>
+    <td>{{ inp.email }}</td>
+    <td>{{ inp.contact }}</td>
+    <td>{{ inp.address }}</td>
+    <td>{{ inp.date }}</td>
+    <td>{{ inp.clock }}</td>
+
+  </tr>
+</div>
+	{% endfor %}
+	</table>
+
+
+
+</body>
+</html> 

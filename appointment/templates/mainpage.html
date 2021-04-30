@@ -1,0 +1,171 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Shinee Smiles: Book Dental Appointment</title>
+</head>
+<style>
+/*
+#D998BA 	+
+#E3BCD6 	++
+
+#D8769A 	---
+#C2465C 	--
+#9B283C 	-FUSCIA
+#330715		-DARKEST
+*/
+*{
+ font-family: sans-serif;
+ box-sizing: border-box;
+}
+h1{
+	color: white;
+	text-align: center;
+	font-size: 70px;
+	-webkit-text-stroke-width: 3px;
+	-webkit-text-stroke-color: #9B283C;
+}
+#p1{
+	color: #4d0a20;
+}
+#p2{
+	color: white;
+}
+#p3{
+	color: white;
+}
+label{
+	width: 100px;
+	display: inline-block;
+	text-align: right;
+}
+.container {
+	height:680px;
+	width: 1000px;
+	position: relative;
+	left: 420px;
+	border-radius: 5px;
+	background-color: #D8769A;
+ 	padding: 50px 50px;
+}
+#fullname{
+	color: white;
+}
+#name{
+	width: 86%;
+ 	padding: 15px 20px;
+	margin: 8px 0;
+	text-align: left;
+	color: #9B283C;
+}
+#emailaddress{
+	color: white;
+}
+#email{
+	width: 37%;
+ 	padding: 18px 20px;
+	margin: 8px 0;
+	text-align: left;
+	color: #9B283C;
+}
+#contactnumber{
+	color: white;
+}
+#contact{
+	width: 37%;
+ 	padding: 18px 20px;
+	margin: 8px 0;
+	text-align: left;
+	color: #9B283C;
+}
+#fulladdress{
+	color: white;
+}
+#address{
+	width: 86%;
+ 	padding: 30px 20px;
+	margin: 8px 0;
+	text-align: left;
+	color: #9B283C;
+}
+#scheduledate{
+	color: white;
+}
+#date{
+	width: 37%;
+	padding: 15px 20px;
+	color: #9B283C;
+}
+#scheduletime{
+	color: white;
+}
+#clock{
+	width: 37%;
+	padding: 15px 20px;
+	color: #9B283C;
+}
+#booknow{
+	padding: 15px 20px;
+	text-align: center;
+	font-weight: bold;
+	color: white;
+	background-color: #9B283C;
+}
+</style>
+
+
+<body style="background-color:#E3BCD6;">
+<h1>Book Dental Appointment</h1>
+<div class = "container">
+<form class ="form" action="" method="post">
+	<p1 id="p1">Fill up this form first then we will contact you once your schedule is confirmed</p1>
+	<br>
+	<br>
+
+
+    <label id="fullname"><b>Full Name:</b></label>
+    <input type="text" name="name" id="name" placeholder="Enter Full Name" required>
+    <br>
+    <br>
+
+
+    <label id="emailaddress"><b>Email Address:</b></label>
+    <input type="text" name="email" id="email" placeholder="Enter Email Address" required>
+
+ 	<label id="contactnumber"><b>Contact Number:</b></label>
+    <input type="text" name="contact" id="contact" placeholder="Enter Contact Number" required>
+    <br>
+    <br>
+
+
+ 	<label id="fulladdress"><b>Full Address:</b></label>
+    <input type="text" name="address" id="address" placeholder="Enter Full Address" required>
+    <br>
+    <br>
+
+
+    <label id="scheduledate"><b>Schedule Date:</b></label>
+    <input type="Date" name="date" id="date" placeholder="yyyy-mm-dd" value="" min="2021-04-29" max="2022-04-30" required>
+    <br>
+    <p2 id="p2" style="font-size: 13px">(Note: Dental clinic is open every Thursday and Saturday only. Regular holidays are excluded)</p2>
+    <br>
+    <br>
+
+    <label id="scheduletime"><b>Schedule Time:</b></label>
+    <input type="text" name="clock" id="clock" placeholder="Enter Desired Time" required>
+    <br>
+    <p3 id="p3" style="font-size: 13px">(Note: Dental clinic hours is from 10AM to 4PM only. Please be reminded that maximum of 2hrs is only alloted for brace and denture procedures)</p3>
+    <br>
+    <br>
+
+	<button id=booknow onclick="myFunction()">Book now</button>
+
+
+<!--
+<script id=alert>function myFunction() {alert("Hello my dear client.\nPlease wait for the confirmation of your schedule. Always wear your mask and face shields before entering the clinic.\nStay safe. God Bless!");}</script>
+-->
+    {% csrf_token %}
+</form>
+
+
+</body>
+</html>
