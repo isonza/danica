@@ -144,7 +144,7 @@ label{
 
 
     <label id="scheduledate"><b>Schedule Date:</b></label>
-    <input type="Date" name="date" id="date" placeholder="yyyy-mm-dd" value="" min="2021-04-29" max="2022-04-30" required>
+    <input type="text" name="date" id="date" placeholder="Enter Desired Date" required>
     <br>
     <p2 id="p2" style="font-size: 13px">(Note: Dental clinic is open every Thursday and Saturday only. Regular holidays are excluded)</p2>
     <br>
@@ -161,6 +161,8 @@ label{
 
 
 <!--
+value="" min="2021-04-29" max="2022-04-30"
+
 <script id=alert>function myFunction() {alert("Hello my dear client.\nPlease wait for the confirmation of your schedule. Always wear your mask and face shields before entering the clinic.\nStay safe. God Bless!");}</script>
 -->
     {% csrf_token %}

@@ -8,14 +8,14 @@ from appointment.models import Item, User
 
 
 	#Refactored
-class IndexTest(TestCase):
+class MainPageTest(TestCase):
 
 	def html_index_root_mainpage_yung_html(self):
 		found = resolve('/')
 		self.assertEqual(found.func, MainPage)
 
 		
-	def test_index_returns_correct_view(self):
+	def test_MainPage_returns_tamang_view(self):
 		request = HttpRequest()
 		response = MainPage(request)
 		html = response.content.decode('UTF-8')
@@ -35,7 +35,7 @@ class IndexTest(TestCase):
 		self.assertIn('<label id="fulladdress"><b>Full Address:</b></label>', html)
 		self.assertIn('<input type="text" name="address" id="address" placeholder="Enter Full Address" required>', html)
 		self.assertIn('<label id="scheduledate"><b>Schedule Date:</b></label>', html)
-		self.assertIn('<input type="Date" name="date" id="date" placeholder="yyyy-mm-dd" value="" min="2021-04-29" max="2022-04-30" required>', html)
+		self.assertIn('<input type="text" name="date" id="date" placeholder="Enter Desired Date" required>', html)
 		self.assertIn('<p2 id="p2" style="font-size: 13px">(Note: Dental clinic is open every Thursday and Saturday only. Regular holidays are excluded)</p2>', html)		
 		self.assertIn('<label id="scheduletime"><b>Schedule Time:</b></label>', html)
 		self.assertIn('<input type="text" name="clock" id="clock" placeholder="Enter Desired Time" required>', html)
@@ -47,20 +47,20 @@ class IndexTest(TestCase):
 
 class LiveViewTest(TestCase):
 
-	def test_uses_list_template(self):
+	def test_gumagamit_list_template(self):
 		client = User.objects.create()
 		response = self.client.get('/')
 		self.assertTemplateUsed(response, 'mainpage.html')
-	def test_uses_home_template(self):
+	def test_gumagamit_home_template(self):
 		response = self.client.get('/book/')
 		self.assertTemplateUsed(response, 'bookpage.html')
-	def test_displays_all_list_items(self):
+	def test_shows_all_list_items(self):
 		client = User.objects.create()
 		name = Item.objects.create(name='name')
 		email = Item.objects.create(email='email')
 		contact = Item.objects.create(contact='contact')
 		address = Item.objects.create(address='address')
-		date = Item.objects.create(date='2000-10-08')
+		date = Item.objects.create(date='date')
 		clock = Item.objects.create(clock='clock')
 		response = self.client.get('/')
 		self.assertIn('name', response.content.decode())
@@ -73,13 +73,13 @@ class LiveViewTest(TestCase):
 		email = Item.objects.create(email='email')
 		contact = Item.objects.create(contact='contact')
 		address = Item.objects.create(address='address')
-		date = Item.objects.create(date='2000-10-08')
+		date = Item.objects.create(date='date')
 		clock = Item.objects.create(name='clock')
 		self.assertEqual(Item.objects.count(), 12)
 
 
-class Models(TestCase):
-	def modelo(self,
+class Modelsnaman(TestCase):
+	def modelmodel(self,
 		client="test1",
 		name="test2",
 		email="test3",
@@ -95,45 +95,45 @@ class Models(TestCase):
 			email="email",
 			contact="contact",
 			address="address",
-			date="2000-10-08",
+			date="date",
 			clock="clock", )
 
-	def test_whatever_creation(self):
-		w=self.modelo()
+	def test_kahitanong_creation(self):
+		w = self.modelmodel()
 		self.assertTrue(isinstance(w, User))
 		self.assertFalse(isinstance(w, Item))
 
 
-class ORM_First_Input(TestCase):
+class ORM_Unang_Input(TestCase):
 	def test_savings(self):
 
 		item_ = Item()
 		item_.save()
 
 
-		l1 = Item()
-		l1.name = 'Danica Isonza'
-		l1.item_ = item_
-		l1.save()
-		l2 = Item()
-		l2.email = 'entmt.danicaisonza@gmail.com'
-		l2.item_ = item_
-		l2.save()
-		l3 = Item()
-		l3.contact = '09128126166'
-		l3.item_ = item_
-		l3.save()
-		l4 = Item()
-		l4.address = 'B4 L28 San Miguel 2 Dasma Cavite'
-		l4.item_ = item_
-		l4.save()
-		l5 = Item()
-		l5.date = '2021-04-29'
-		l5.item_ = item_
-		l5.save()
-		l6 = Item()
-		l6.clock = '2PM'
-		l6.save()
+		Item1 = Item()
+		Item1.name = 'Danica Isonza'
+		#l1.item_ = item_
+		Item1.save()
+		Item2 = Item()
+		Item2.email = 'entmt.danicaisonza@gmail.com'
+		#l2.item_ = item_
+		Item2.save()
+		Item3 = Item()
+		Item3.contact = '09128126166'
+		#l3.item_ = item_
+		Item3.save()
+		Item4 = Item()
+		Item4.address = 'B4 L28 San Miguel 2 Dasma Cavite'
+		#l4.item_ = item_
+		Item4.save()
+		Item5 = Item()
+		Item5.date = '2021-04-29'
+		#l5.item_ = item_
+		Item5.save()
+		Item6 = Item()
+		Item6.clock = '2PM'
+		Item6.save()
 
 		saveall = Item.objects.all()
 		self.assertEqual(saveall.count(), 7)
@@ -142,16 +142,17 @@ class ORM_First_Input(TestCase):
 		save3 = saveall[2]
 		save4 = saveall[3]
 		save5 = saveall[4]
-		save6 = saveall[5]		
-		self.assertEqual(l1.name, 'Danica Isonza')
-		self.assertEqual(l2.email, 'entmt.danicaisonza@gmail.com')
-		self.assertEqual(l3.contact, '09128126166')
-		self.assertEqual(l4.address, 'B4 L28 San Miguel 2 Dasma Cavite')
-		self.assertEqual(l5.date, '2021-04-29')
-		self.assertEqual(l6.clock, '2PM')
+		save6 = saveall[5]	
+
+		self.assertEqual(Item1.name, 'Danica Isonza')
+		self.assertEqual(Item2.email, 'entmt.danicaisonza@gmail.com')
+		self.assertEqual(Item3.contact, '09128126166')
+		self.assertEqual(Item4.address, 'B4 L28 San Miguel 2 Dasma Cavite')
+		self.assertEqual(Item5.date, '2021-04-29')
+		self.assertEqual(Item6.clock, '2PM')
 
 
-class Views(TestCase):
+class Viewsnaman(TestCase):
 	def setUp(self):
 		name = Item.objects.create()
 		email = Item.objects.create() 
@@ -168,9 +169,10 @@ class Views(TestCase):
 			date = '2021-04-29',
 			clock = '2PM',
 			)
-		self.client.post('book/')
+		self.client.post('/book/', name='Danica Isonza')
+		response = self.client.post('/book/')
 
-	def test_second_html_returns_correct_view(self):
+	def test_second_html_balik_sa_tamang_view(self):
 		request = HttpRequest()
 		response = MainPage(request)
 		html = response.content.decode('UTF-8')
@@ -181,7 +183,7 @@ class Views(TestCase):
 		self.assertTrue(html.strip().endswith('</html>'))
 
 
-	def test_get(self):
+	def test_kunin(self):
 		name = Item.objects.get(name = 'Danica Isonza')
 		email = Item.objects.get(email = 'entmt.danicaisonza@gmail.com') 
 		contact = Item.objects.get(contact =  '09128126166')
@@ -196,7 +198,7 @@ class Views(TestCase):
 		name = Item.objects.first()
 		clock = Item.objects.last()
 
-class URL(TestCase):
+class URLnaman(TestCase):
 	def urls(self):
 		found = resolve()
 		self.assertEqual(found.func, MainPage)

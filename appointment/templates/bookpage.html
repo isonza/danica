@@ -35,34 +35,37 @@ td{
 
 <body style="background-color:#E3BCD6;">
 <center><h1>Submitted Client Information</h1></center>
+
 <table style="width:100%">
-  <tr>
-  
-    <th>Full name:</th>
+
+<th>Full name:</th>
     <th>Email Address:</th>
     <th>Contact Number:</th>
     <th>Address:</th>
     <th>Date:</th>
     <th>Time:</th>
     </tr>
-<div class="inp">
-	{% for inp in inp %}
-	<div class="inp">
+
+	{% for obj in obj %}
+	<div class="obj">
 
     <tr>
-    <td>{{ forloop.counter }}:{{ inp.name }}</td>
-    <td>{{ inp.email }}</td>
-    <td>{{ inp.contact }}</td>
-    <td>{{ inp.address }}</td>
-    <td>{{ inp.date }}</td>
-    <td>{{ inp.clock }}</td>
+    <td>{{ forloop.counter }}:{{ obj.name }}</td>
+    <td>{{ obj.email }}</td>
+    <td>{{ obj.contact }}</td>
+    <td>{{ obj.address }}</td>
+    <td>{{ obj.date }}</td>
+    <td>{{ obj.clock }}</td>
+	</tr>
 
   </tr>
 </div>
+
 	{% endfor %}
+    {% csrf_token %}
+ 
 	</table>
 
 
-
 </body>
-</html> 
+</html>
